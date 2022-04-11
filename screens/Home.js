@@ -7,7 +7,11 @@ import { HomeHeader, FocusedStatusBar, NFTCard } from "../components";
 const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <FocusedStatusBar background={COLORS.primary} />
+      <FocusedStatusBar
+        barStyle="dark-content"
+        background="transparent"
+        translucent={true}
+      />
       <View style={{ flex: 1 }}>
         <View style={{ zIndex: 0 }}>
           <FlatList
