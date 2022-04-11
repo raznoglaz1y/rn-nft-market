@@ -1,4 +1,4 @@
-import { View, SafeAreaView, FlatList, Text } from "react-native";
+import { View, SafeAreaView, FlatList, handleSearch } from "react-native";
 import { useState } from "react";
 
 import { COLORS, NFTData } from "../constants";
@@ -15,9 +15,10 @@ const Home = () => {
             renderItem={({ item }) => <NFTCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<HomeHeader />}
+            ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
           />
         </View>
+
         <View
           style={{
             position: "absolute",
@@ -28,8 +29,8 @@ const Home = () => {
             zIndex: -1,
           }}
         >
-        <View style={{height: 300, backgroundColor: COLORS.primary}}/>
-        <View style={{flex: 1, backgroundColor: COLORS.white}}/>
+          <View style={{ height: 300, backgroundColor: COLORS.primary }} />
+          <View style={{ flex: 1, backgroundColor: COLORS.white }} />
         </View>
       </View>
     </SafeAreaView>

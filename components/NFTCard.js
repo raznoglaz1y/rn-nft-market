@@ -1,12 +1,14 @@
-import { View, Image } from "react-native";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import { View, Image } from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-import { CircleButton, RectButton } from "../components";
-import { SubInfo, EthPrice, NFTTitle } from "../components/SubInfo";
+import { SubInfo, EthPrice, NFTTitle } from "./SubInfo";
+import { RectButton, CircleButton } from "./Button";
 
 const NFTCard = ({ data }) => {
   const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -33,22 +35,20 @@ const NFTCard = ({ data }) => {
             borderTopRightRadius: SIZES.font,
           }}
         />
+
         <CircleButton imgUrl={assets.heart} right={10} top={10} />
       </View>
+
       <SubInfo />
 
-      <View
-        style={{
-          width: "100%",
-          padding: SIZES.font,
-        }}
-      >
+      <View style={{ width: "100%", padding: SIZES.font }}>
         <NFTTitle
           title={data.name}
           subTitle={data.creator}
           titleSize={SIZES.large}
           subTitleSize={SIZES.small}
         />
+
         <View
           style={{
             marginTop: SIZES.font,
